@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+#OP.GG与Riot API 录像那点事
+##OP.GG
+* opgg是一家专注于做LOL数据的网站,其数据来源主要为Riot开放的API,主营KR有NA EU支持
+  * 有搜索ID功能
+  * 有排行榜
+  * 有ID战绩列表,符文天赋
+  * 分析ID的数据,英雄,位置
+  * 高分段录像
+  
+##Riot API
+* Riot API是Riot提供的一套官方的数据接口,只针对Riot直属的服务器,所以国服,台服等不在此列
+    * https://developer.riotgames.com 拥有一个对应服务器的账号,登录以后就可以获得一个development key了
+    * 如果需要专业级别的key,可以申请
+* MatchHistory
+    * MH是新出的战绩服务器,比原先的战绩更加详细,但只能获取排位数据
+    * MH拥有Timeline功能,可以记录更多比赛中的数据,更加详细便于分析
+    * 大型比赛也有MH,一般公布在LOLEsports上,有一套自由的API,以后详述
+* ddragon
+    * 官方的CDN服务器
+    * 保存了一些LOL的静态资料,包括文字,图片等
+    * http://ddragon.leagueoflegends.com/tool 有一个在线工具
+    * API部分以后详述
+ 
+##LOL Replay
+* op.gg的replay是自行录制的非官方提供,方法在github上有很多开源项目,原理是借助了Riot的OB系统,可以通过抓包过程来学习
+* Riot API可以提供录制replay需要的参数
+* 播放方式是自建一个http服务来模拟OB服务器的动作
+
+##TGP录像
+* 在之前的TGP中也有一个录像,原理类似
+* 只不过他们把数据打包成一个文件,在玩家本地自建了http服务实现的
+
+##国服LOL录像
+* 国外一些录像工具在国服没法使用是因为国服有TP阻止了这些软件获得客户端数据导致的
+* 可以尝试使用lolreplay的一个库,通过抓包的方式把客户端数据抓包并解析来取得需要的数据,那个库叫air.dll
+
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<h1 id="opggriotapi">OP.GG与Riot API 录像那点事</h1>
+
+<h2 id="opgg">OP.GG</h2>
+
+<ul>
+<li>opgg是一家专注于做LOL数据的网站,其数据来源主要为Riot开放的API,主营KR有NA EU支持
+<ul><li>有搜索ID功能</li>
+<li>有排行榜</li>
+<li>有ID战绩列表,符文天赋</li>
+<li>分析ID的数据,英雄,位置</li>
+<li>高分段录像</li></ul></li>
+</ul>
+
+<h2 id="riotapi">Riot API</h2>
+
+<ul>
+<li>Riot API是Riot提供的一套官方的数据接口,只针对Riot直属的服务器,所以国服,台服等不在此列
+<ul><li>https://developer.riotgames.com 拥有一个对应服务器的账号,登录以后就可以获得一个development key了</li>
+<li>如果需要专业级别的key,可以申请</li></ul></li>
+<li>MatchHistory
+<ul><li>MH是新出的战绩服务器,比原先的战绩更加详细,但只能获取排位数据</li>
+<li>MH拥有Timeline功能,可以记录更多比赛中的数据,更加详细便于分析</li>
+<li>大型比赛也有MH,一般公布在LOLEsports上,有一套自由的API,以后详述</li></ul></li>
+<li>ddragon
+<ul><li>官方的CDN服务器</li>
+<li>保存了一些LOL的静态资料,包括文字,图片等</li>
+<li>http://ddragon.leagueoflegends.com/tool 有一个在线工具</li>
+<li>API部分以后详述</li></ul></li>
+</ul>
+
+<h2 id="lolreplay">LOL Replay</h2>
+
+<ul>
+<li>op.gg的replay是自行录制的非官方提供,方法在github上有很多开源项目,原理是借助了Riot的OB系统,可以通过抓包过程来学习</li>
+<li>Riot API可以提供录制replay需要的参数</li>
+<li>播放方式是自建一个http服务来模拟OB服务器的动作</li>
+</ul>
+
+<h2 id="tgp">TGP录像</h2>
+
+<ul>
+<li>在之前的TGP中也有一个录像,原理类似</li>
+<li>只不过他们把数据打包成一个文件,在玩家本地自建了http服务实现的</li>
+</ul>
+
+<h2 id="lol">国服LOL录像</h2>
+
+<ul>
+<li>国外一些录像工具在国服没法使用是因为国服有TP阻止了这些软件获得客户端数据导致的</li>
+<li>可以尝试使用lolreplay的一个库,通过抓包的方式把客户端数据抓包并解析来取得需要的数据,那个库叫air.dll</li>
+</ul>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "riotapi";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
